@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+html(lang="es")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible", content="ie=edge")
+		title Admin - Evaldo
+		link(rel="stylesheet" href="style/normalize.css")
+		link(rel="stylesheet" href="style/admin/estilo.css")
+		script(src="script/admin/index.js")
+	body
+		div#contenido
+			header
+				div#titulo
+					a(href="/")
+						h1 Evaldo - Admin 
+					#reloj
+							code #{fecha}
+				div#menu
+					ul
+						a(href="#")#registrarBtn
+							li Nuevo Usuario
+						a(href="/logs")
+							li Registro de Eventos
+						a#logout(href="logout")
+							li Salir
+			main
+				#usuariosTabla
+					table
+						tr
+							th Nombre
+							th Usuario
+							th Correo
+							th Tipo
+							th Carrera
+						each val in usuarios
+							tr.usuarioListado
+								td= val.nombre
+								td= val.usuario
+								td= val.correo
+								td= val.tipo
+								td= val.carrera
+			#modalRegistrar
+				.modalBackground
+						.contenedorModal
+							h1 Registrar nuevo usuario
+							form#registroForm()
+								input#nombre(type="text", name="nombre", pattern="[a-zA-Z\\s]{3,20}", required, placeholder="Nombre", autocomplete="off", tooltip)
+								input#correo(type="email", name="correo", required, placeholder="Correo electrónico")
+								input#usuario(type="text", name="usuario", required, pattern="[a-zA-Z]{3,20}", placeholder="Usuario", autocomplete="off")
+								input#clave(type="password", name="clave", required, pattern="[\\w|\\d|,.-_!#$%&/())=?¡¿|\\s]{6,20}", placeholder="Clave", autocomplete="off")
+								select#tipo(name="tipo")
+									option(value="Coordinador de carrera") Coordinador de carrera
+									option(value="Planificacion") Planificacion
+									option(value="Des. Docente") Des. Docente
+								select#carrera(name="carrera")
+									option(value="Ing. Agronómica") Ing. Agrónomica
+									option(value="Ing. Mecánica") Ing. Mecánica
+									option(value="Ing. Civil") Ing. Civil
+									option(value="Ing. de Telecomunicaciones") Ing. de Telecomunicaciones
+									option(value="TSU en Administración") TSU en Administración
+									option(value="TSU en Enfermería") TSU en Enfermería
+								input#enviarRegistroBtn(type="submit", value="Enviar")
+								input#cancelarRegistroBtn(type="button", value="cancelar")
+			#modalEliminar
+				.modalBackground
+					#modalEliminarDialog
+						h1#mensajeEliminar
+			#modalEliminarSure
+				.modalBackground
+					#modalEliminarSureDialog
+						h1#mensajeEliminarSure
+			#modalMensaje
+				.modalBackground
+					#modalMensajeDialog
+						h1#mensajeTexto
+		footer
+	flat

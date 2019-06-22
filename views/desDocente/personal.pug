@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+	html(lang="es")
+		head
+			meta(charset="UTF-8")
+			meta(name="viewport", content="width=device-width, initial-scale=1.0")
+			meta(http-equiv="X-UA-Compatible", content="ie=edge")
+			title Evaldo - Desarrollo Docente / Validar profesores
+			link(rel="stylesheet" href="style/normalize.css")
+			link(rel="stylesheet" href="style/desDocente/estilo.css")
+			link(rel="stylesheet", href="/script/flatPickr/flatpickr.css")
+			script(src="script/desDocente/personal.js")
+		body
+			div#contenido
+				header
+					div#titulo
+						a(href="/")
+							h1 Evaldo - Desarrollo Docente
+						#reloj
+								code #{fecha}
+					div#menu
+						ul
+							a(href="/")
+								li Inicio
+							a#botonDocumentos(href="#")
+								li Lista de Documentos
+							a#logout(href="logout")
+								li Salir
+				main#personal
+					#tablaPersonal
+						table
+							tr
+								th Nombre
+								th Apellido
+								th Cedula
+								th Estado
+							each val in profesores
+								tr.profesorClickable
+									td= val.nombre
+									td= val.apellido
+									td= val.cedula
+									td= val.estado
+			#modalProfesor
+				.modalBackground
+				.contenedorModal#recaudos
+					h1#nombreProfesor Profesor Pedro Perez
+					#tablaRecaudos
+						table
+							tbody
+								tr
+									th Nombre
+									th(style="text-align:center; width: 10rem") Entregado
+					input#guardarProfesor.enviarBtn(type="submit", value="Guardar")
+					input.cancelarBtn(type="button", value="Cancelar")
+			#modalDocumentos
+				.modalBackground
+				.contenedorModal
+					h1 Documentos a entregar
+					.tablaRecaudos
+						table
+							tbody
+								tr
+									th Nombre
+									th(style="text-align: center; border-left: 3px solid black; width: 10rem;") Eliminar
+								tr#nuevoRecaudo
+									td(colspan=2) +
+					input#guardarDocumentos.enviarBtn(type="submit", value="Guardar")
+					input.cancelarBtn(type="button", value="Cancelar")
+			#modalMensaje
+				.modalBackground
+				.contenedorModal
+					h1#mensajeText
+			footer
+		script(src="/script/flatPickr/flatpickr.js")
+		script(src="/script/flatPickr/es.js")
+		script. 
+			flatpickr.localize(flatpickr.l10ns.es);

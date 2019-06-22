@@ -1,0 +1,475 @@
+/* General */
+	body{
+			display: grid;
+			grid-template-areas:"contenido" 
+								"footer";
+			grid-template-rows: 1fr auto;					
+		}
+
+/* INDEX */
+	
+	#contenido{
+			grid-area: contenido;
+			display: grid;
+			grid-template-areas:"header" 
+								"main";
+			grid-template-rows: auto 1fr;
+		}
+		header{
+				grid-area: header;
+			}
+		main#index {
+			grid-area: main;
+			align-self: top;
+			justify-self: top;
+			}
+		main#index.resultados{
+			display: flex;
+		}
+
+		#eventos, #alertas, #estado, #eventosIniciados{
+				box-sizing: border-box;
+				background-color: white;
+				margin-top: 1rem;
+				border: 5px solid var(--azul-4);
+				border-radius: 25px 25px 0px 0px;
+				border-bottom: none;
+				}
+			#eventos table, #alertas table, #estado table, #eventosIniciados table{
+				border-collapse: collapse;
+				}
+			#eventos h2, #alertas h2, #estado h2, #eventosIniciados h2{
+				text-align: left;
+				padding-left: 2rem;
+				width: calc(100% - 2rem);
+				margin: 0px;
+				color: var(--azul-4);
+				font-weight: bolder;
+				font-size: 2.2rem;
+				font-family: sans-serif;
+				border-bottom: 5px solid var(--azul-4);
+			}
+		
+		#estado{
+			display: flex;
+			flex-direction: column;
+			grid-area: estado;
+		}
+		#alertas{
+			display: flex;
+			flex-direction: column;
+		}
+		#eventos{
+			grid-area: eventos;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+
+		#alertas table, #alertas table tr, #alertas table tr td{
+			width: 100%;
+			display: block;
+		}
+		#eventosIniciados tbody, #eventosIniciados table, #eventosIniciados table tr, #eventosIniciados table tr td{
+			width: 100%;
+			display: block;
+		}
+		#eventosIniciados td{
+			padding-left: 3rem;
+			width: calc(100% - 3rem);
+			font-weight: bolder;
+		}
+		#eventosIniciados tr:nth-child(even){
+			background-color: var(--azul-3);
+			color: white;
+			text-shadow: 0px 0px 10px black;
+		}
+	#alertas table .tituloAlerta{
+			background-color: rgb(100,30,30);
+			color: white;
+		}
+	#eventos table .tituloEvento{
+			background-color: var(--azul-3);
+			color: white;
+		}
+	#alertas table .tituloAlerta>td{
+			padding-left: 3rem;
+			width: calc(100% - 3rem);
+		}
+	#eventos table .tituloEvento>td{
+			padding-left: 3rem;
+			width: calc(100% - 3rem);
+		}
+	#alertas table .tituloAlerta>tr>td{
+			background-color: rgb(170,10,10);
+			color:white;
+			text-shadow: 0px 0px 3px black;
+			padding-left: 6rem;
+			width: calc(100% - 6rem);
+		}
+	#eventos table .tituloEvento>tr>td{
+			background-color: var(--azul);
+			color:white;
+			text-shadow: 0px 0px 3px black;
+			padding-left: 6rem;
+			width: calc(100% - 6rem);
+		}
+	#alertas table .tituloAlerta>tr>tr>td{
+			background-color: rgb(250,20,20);
+			color:white;
+			text-shadow: 0px 0px 3px black;
+			padding-left: 9rem;
+			width: calc(100% - 9rem);
+		}
+	#eventos table .tituloEvento>tr>tr>td{
+			background-color: white;
+			color:black;
+			text-shadow: 0px 0px 3px whitesmoke;
+			padding-left: 9rem;
+			width: calc(100% - 9rem);
+		}
+		/* NUEVA PARTE */
+	.tituloEvento, .tituloAlerta{
+			display: block;
+			width: 100%;
+			font-weight: bolder;
+		}
+	.tituloEvento > tr, .tituloAlerta>tr{
+		font-weight: normal;
+	}
+	#eventos *{
+		display: block;
+	} 
+	#eventos table .tituloEvento>td{
+			padding-left: 3rem;
+			width: calc(100% - 3rem);
+		}
+	#eventos table .tituloEvento>tr>td{
+			text-shadow: 0px 0px 2px black;
+			padding-left: 6rem;
+			width: calc(100% - 6rem);
+			font-weight: normal;
+		}
+		/* FIN */
+		td>p{
+			margin: 0;
+		}
+		
+		/* VOY */
+		input.flatpickr-input{
+			background-color: rgba(0, 0, 0, 0.2);
+			border: none;
+			width: 100%;
+			color: inherit;
+		}
+		td.fechaBtn{
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+		main#index div h3 {
+			width: 100%;
+			text-align: center;
+		}
+		#busy{
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			display: none;
+			background: rgba(0, 0, 0, 0.5);
+			z-index: 99;
+			cursor: wait;
+		}
+
+/* Fin del INDEX */
+
+/* Inicio del PERSONAL */
+	/* Tabla */
+		main#personal{
+			margin-top: 2rem;
+			display: grid;
+			grid-template-columns: 2rem auto 2rem;
+			grid-template-rows: auto;
+			grid-template-areas: ". tabla .";
+		}
+		#tablaPersonal{
+			grid-area: tabla;
+			padding: 2rem;
+			border-radius: 50px;
+			background: rgba(255,255,255,1);
+			border-spacing: 2rem;
+		}
+		#tablaPersonal table{
+			border-collapse: collapse;
+			width: 100%;
+		}
+		tr:nth-child(even){
+			background-color: var(--azul-3);
+			color: white;
+			text-shadow: 0px 0px 10px black;
+		}
+		.flatpickr-input, .fechaCell{
+			text-align: center !important;
+		}
+		tr:nth-child(0){
+			text-align: left;
+		}
+		tr:nth-child(odd){
+			background-color: white;
+			text-shadow: 0px 0px 1px gray;
+			color: black;
+		}
+		td{
+			padding: 0.5rem 0rem;
+			font-family: sans-serif;
+			font-size: 1.2rem;
+		}
+		.estadoBtn, .fechaBtn, .notaBtn
+		{
+			text-align: center;
+		}
+		th{
+			font-size: 1.5rem;
+			font-weight: bolder;
+			padding: 0rem 0rem 1rem 0rem;
+			background-color: white;
+		}
+		th, td{
+			border-bottom: 3px solid black;
+			text-align: left;
+			padding-left: 0.5rem;
+		}
+		th:nth-child(2), th:nth-child(3),th:nth-child(4),tr>td:nth-child(2), tr>td:nth-child(3),tr>td:nth-child(4)
+		{
+			text-align: center;
+		}
+		tr.profesorClickable:hover{
+			cursor: pointer;
+		}
+
+	/* Modales con ID */
+		#modalResumenProfesor, #modalMensaje, #modalRegistrar, #modalEliminar,#modalEliminarSure, #modalProfesor, #modalFechas {
+		display:none;
+	}
+	#modalProfesor .contenedorModal, #modalFechas .contenedorModal{
+		height: 80%;
+		width: 80%;
+		top: 5%;
+		left: 5%;
+		display: grid;
+		grid-column-gap: 10px;
+		grid-template-columns:1fr 1fr;
+		grid-template-areas: "Nombre Nombre"
+							 "Recaudos Recaudos"
+							 "botonEnviar botonCancelar";
+		grid-template-rows: auto 1fr auto;
+	}
+	/* Estructura de los modales */
+	.modalBackground{
+		position: fixed;
+		z-index: 1;
+		top: 0%;
+		left: 0%;
+		width: 100%;
+		height: 100%;
+		background: rgba(50,50,50, 0.6);
+	}
+	.fechaBtn{
+		width: 19rem;
+	}
+	.contenedorModal{
+		z-index: 2;
+		background-color: rgb(240, 240, 240);
+		position: absolute;
+		width: 60%;
+		top: 30%;
+		left: 15%;
+		padding: 20px 5%;
+		text-align: center;
+	}
+	.enviarBtn{
+		width: 6rem;
+		grid-area: botonEnviar;
+		justify-self: right;
+		margin-right: 10px;
+	}
+	.cancelarBtn{
+		width: 6rem;
+		grid-area: botonCancelar;
+		justify-self: left;
+		margin-left: 10px;
+	}
+	.tablaRecaudos tbody, .tablaRecaudos table{
+		border-collapse: collapse;
+		width: 100%;
+	}
+	.tablaRecaudos::-webkit-scrollbar{
+		width: 0px;
+	}
+	#index>#tablaResultados>tbody>tr>td{
+		border: none;
+	}
+	#index>#tablaResultados>tbody>tr>td>table{
+		border: 5px solid black;
+		border-radius: 25px;
+		padding: 10px;
+		border-collapse: collapse;
+	}
+	#index>#tablaResultados>tbody>tr>td>table>tbody>tr:last-child>td, #index>#tablaResultados>tbody>tr>td>table>tbody>tr:last-child>th{
+		border-bottom: none;
+	}
+	#index>#tablaResultados>tbody>tr>td>table>tbody>tr:nth-child(even)>th{
+		background-color: var(--azul-3)
+	}
+	#index>#tablaResultados>tbody>tr>td:nth-child(2)>table>tbody>tr >th, #index>#tablaResultados>tbody>tr>td:nth-child(2)>table>tbody>tr >td{
+		padding-right: 40px;
+		text-align: center;
+	}
+	#index>#tablaResultados>tbody>tr>td:nth-child(2)>table>tbody>tr:nth-child(1)>th:last-child{
+		padding-right: 0px;
+	}
+	#index>#tablaResultados{
+		align-self: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.tablaRecaudos 
+	{height: auto;
+	grid-area: Recaudos;
+	border: 5px dashed var(--azul-4);
+	margin-bottom: 50px;}
+
+	/* Modal de registro */
+	#modalRegistrar>.contenedorModal>form{
+		display: grid;
+		width: 100%;
+		grid-template-areas: "nombre nombre apellido apellido cedula cedula"
+							 "botonEnviar botonEnviar botonEnviar botonCancelar botonCancelar botonCancelar";
+		grid-row-gap: 10px;
+		grid-template-rows: 2rem auto;
+		font-family: sans-serif;
+	}
+	#modalProfesor>.contenedorModal{
+		width: 96%;
+		left: 1%;
+		padding: 2% 1%;
+	}
+	#registroForm>.nombre{
+		width: 100%;
+		grid-area: nombre;
+		text-align: center;
+		border-left: 4px solid var(--azul-4);
+		border-top: 4px solid var(--azul-4);
+		border-bottom: 4px solid var(--azul-4);
+		border-right: none;
+		border-radius: 25px 0px 0 25px;
+	}
+	#registroForm>.apellido{
+		width: 100%;
+		grid-area: apellido;
+		text-align: center;
+		border-top: 4px solid var(--azul-4);
+		border-bottom: 4px solid var(--azul-4);
+		border-right: none;
+		border-left: none;
+	}
+	#registroForm>.cedula{
+		width: 100%;
+		grid-area: cedula;
+		text-align: center;
+		border-top: 4px solid var(--azul-4);
+		border-bottom: 4px solid var(--azul-4);
+		border-right: 4px solid var(--azul-4);
+		border-left: none;
+		border-radius: 0px 25px 25px 0px;
+	}
+
+	/* Modal Eliminar primera parte */
+	#modalEliminar>.contenedorModal>form{
+		display: grid;
+		width: 100%;
+		grid-template-areas: "cedula  cedula"
+							 "botonEnviar botonCancelar";
+		grid-row-gap: 10px;
+		grid-template-rows: 2rem auto;
+		font-family: sans-serif;
+	}
+	#eliminarForm>.cedula{
+		width: 100%;
+		grid-area: cedula;
+		align-self: end;
+		text-align: center;
+		border: 4px solid var(--azul-4);
+		border-radius: 25px 25px 25px 25px;
+	}
+	
+	/* Modal Estas Seguro? */
+	#modalEliminarSure>.contenedorModal>form{
+		display: grid;
+		width: 100%;
+		grid-template-areas: ". aceptar . cancelar .";
+		grid-template-columns: auto auto 50px auto auto;
+		font-family: sans-serif;
+	}
+	#modalEliminarSure>.contenedorModal>form>#confirmDelete{
+		grid-area: aceptar;
+		width: 100%;
+		max-width: 121px;
+		align-self: end;
+		justify-self: end;
+	}
+	#modalEliminarSure>.contenedorModal>form>#cancelDelete{
+		grid-area: cancelar;
+		width: 100%;max-width: 121px;
+		align-self: start;
+		justify-self: start;
+	}
+
+
+
+	/* Recaudos */
+	.tablaRecaudos{
+		overflow-y: scroll;
+		height: auto;
+		grid-area: Recaudos;
+	}
+	#nombreProfesor{
+		grid-area: Nombre;
+	}
+/* Mensaje Registro */
+/* Fin del PERSONAL */
+
+/* Normalizar */
+#ok {
+    grid-area: ok;
+}
+.ok {
+    background-color:var(--azul-1);
+}
+#advertencia {
+    grid-area: advertencia;
+}
+.advertencia {
+    background-color: rgba(250, 250, 50, 0.5);
+}
+#alerta {
+    grid-area: alerta;
+}
+.alerta {
+    background-color: rgba(250, 100, 100, 0.5);
+}
+.clickable{
+	cursor: pointer !important;
+}
+#modalResumenProfesor > .contenedorModal{
+	top: 0;
+	left: 5%;
+	width: 80%;
+}
+#modalResumenProfesor th{
+	border-left: 2px solid black;
+}
+#index>#tablaResultados>tbody>tr>td:nth-child(2)>table>tbody>tr>td:nth-child(1){
+	text-align: left;
+}
+

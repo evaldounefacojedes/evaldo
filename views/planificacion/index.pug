@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+html(lang="es")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible", content="ie=edge")
+		title Evaldo - Planificacion
+		link(rel="stylesheet" href="style/normalize.css")
+		link(rel="stylesheet" href="style/planificacion/estilo.css")
+	body
+		div#contenido
+			header
+				div#titulo
+					a(href="/")
+						h1 Evaldo - Planificacion
+					#reloj
+							code #{fecha}
+				div#menu
+					ul
+						a#botonListado(href="#")
+							li Listado de Profesores
+						a#botonBuscar(href="#")
+							li Buscar Profesor
+						a#nuevoPeriodo(href="#")
+							li Nuevo Periodo Académico
+						a(href="/logs")
+							li Registro de Eventos
+						a#logout(href="logout")
+							li Salir
+			main#index.resultados
+				table#tablaResultados
+					tbody
+						tr
+							td
+								table
+									tr
+										th Número de profesores
+										td #{resultados.numeroDeProfesores}
+									tr
+										th Profesores Evaluados
+										td 
+											| #{resultados.profesoresEvaluados.numero}
+											br
+											|  #{resultados.profesoresEvaluados.porcentaje}%
+									tr
+										th Profesores parcialmente evaluados
+										td 
+											|#{resultados.profesoresParcialmenteEvaluados.numero}
+											br
+											| #{resultados.profesoresParcialmenteEvaluados.porcentaje}%
+									tr
+										th Profesores no evaluados
+										td 
+											|#{resultados.profesoresNoEvaluados.numero}
+											br 
+											|#{resultados.profesoresNoEvaluados.porcentaje}%
+							td
+								table
+									tr 
+										th Nombre
+										th Evaluados
+										th Por Evaluar
+										th Resultado Promedio
+									each val in resultados.evaluacion
+										tr
+											td=val.nombre
+											td=val.realizadas
+											td=val.noRealizadas
+											td #{val.promedio}
+			#modalResumenProfesor
+				.modalBackground
+				.contenedorModal#recaudos
+					.tituloModal
+						h1 Evaldo - Planificacion
+					.relojModal
+							code #{fecha}
+					h1.resumen#nombreProfesor 
+						h2.resumen#cedulaProfesor
+					.tablaRecaudos#tablaProfesor
+						table
+							tbody.resumen#tablaEvaluaciones
+								tr
+									th Evaluación
+									th(style='width: 10rem') Nota
+									th(style='width: 10rem') Nota absoluta
+									th(style='width: 10rem') Porcentaje
+					h2.resumen#notaAbsoluta
+					h2.resumen#notaRelativa
+					input.cancelarBtn(type="button", value="Aceptar")
+					input#descargar.cancelarBtn(type="button", value="Descargar")
+			#modalListado
+				.modalBackground
+				.contenedorModal
+					h1 Lista de profesores registrados
+					.tablaRecaudos
+						table
+							tbody#tablaListado
+								tr
+									th Nombre
+									th Apellido
+									th Cedula
+									th Carreras
+					input.cancelarBtn(type="button", value="Aceptar")
+			#modalWait(style='display:none')
+				.modalBackground
+				.contenedorModal
+					h1 Procesando
+		footer
+script(src="script/planificacion/index.js")

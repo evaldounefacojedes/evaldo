@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+html(lang="es")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible", content="ie=edge")
+		title Login - Evaldo
+		link(rel="stylesheet", href="style/normalize.css")
+		link(rel="stylesheet" href="style/login.css")
+	body
+		main
+			h1 Evaldo
+			h2 Sistema de evaluación del personal docente
+			if usuario
+				form(action="/login" method="POST")
+					fieldset
+						legend Ingresar al sistema
+						label(for="usuario_evaldo" required) Usuario
+						input(type="text" id="usuario_evaldo" name="usuario" required autocomplete="off", value=usuario)
+						label(for="pass_evaldo") Contraseña
+						input(type="password" id="pass_evaldo" name="clave" required value="123")
+						input#enviar(style="cursor: pointer",type="submit", value="Enviar")
+						pre.error Usuario o clave invalida 
+						p#forgotPass(style="font-size:1rem; text-align:center; cursor: pointer") olvidé mi contraseña.
+			else
+				form(action="/login" method="POST")
+					fieldset
+						legend Ingresar al sistema
+						label(for="usuario_evaldo" required) Usuario
+						input(type="text" id="usuario_evaldo" name="usuario" required autocomplete="off", placeholder="Usuario")
+						label(for="pass_evaldo") Contraseña								
+						input(type="password" id="pass_evaldo" name="clave" required, , placeholder="Contraseña")
+						input#enviar(style="cursor: pointer", type="submit", value="Enviar")
+						pre.error(style="visibility:hidden") Usuario o clave invalida 
+						p#forgotPass(style="font-size:1rem;  text-align:center; cursor: pointer") olvidé mi contraseña.
+script(src="script/login.js")

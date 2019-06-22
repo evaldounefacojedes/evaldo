@@ -1,0 +1,26 @@
+body{
+	height: 99%;
+	display: grid;
+	grid-template-areas: "contenido"
+						 "footer";
+	grid-template-rows: auto 2rem;
+}
+#contenido{
+	grid-area: contenido;
+	display: flex;
+	flex-direction: column
+}
+
+main{
+	margin-top: 7%;
+	width: 70%;	
+	margin-left: auto;
+	margin-right: auto;
+	background-color: rgb(200, 200, 200);
+	height: 50%;
+	overflow-y: scroll;
+}
+#logs{
+	white-space: pre-line;
+	font-size: 1rem;
+}

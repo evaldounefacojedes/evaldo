@@ -1,0 +1,35 @@
+{
+	"admin": {
+		"usuario": "",
+		"pass": "",
+		"correo": "",
+		"passCorreo": ""
+	},
+	"evaluaciones": [
+		{
+			"nombre": "Evaluación 1",
+			"estado": false,
+			"fechaEntregaF": "",
+			"fechaEntregaI": "",
+			"nota": 0,
+			"porcentaje": 0.3
+		},
+		{
+			"nombre": "Evaluación 2",
+			"estado": false,
+			"fechaEntregaF": "",
+			"fechaEntregaI": "",
+			"nota": 0,
+			"porcentaje": 0.3
+		},
+		{
+			"nombre": "Evaluación 3",
+			"estado": false,
+			"fechaEntregaF": "",
+			"fechaEntregaI": "",
+			"nota": 0,
+			"porcentaje": 0.4
+		}
+	],
+	"reiniciar": false
+}

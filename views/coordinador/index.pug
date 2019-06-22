@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+html(lang="es")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible", content="ie=edge")
+		title Evaldo - Coordinadores
+		link(rel="stylesheet" href="style/normalize.css")
+		link(rel="stylesheet" href="style/coordinador/estilo.css")
+	body
+		div#contenido
+			header
+				div#titulo
+					a(href="/")
+						h1 Evaldo - Coordinadores
+					#reloj
+							code #{fecha}
+				div#menu
+					ul
+						a(href="/personal")
+							li Personal Docente
+						a(href="/resultados")
+							li Resultados
+						a(href="/logs")
+							li Registro de Eventos
+						a#logout(href="logout")
+							li Salir
+			main#index
+				#estado
+					h2 Estado
+					table
+						tbody
+							tr
+								td Número de profesores registrados
+								td #{estado.numeroDeProfesores}
+							tr
+								td Evaluaciones realizadas
+								td #{estado.documentosEntregados}
+							tr
+								td Evaluaciones pendientes por realizar
+								td #{estado.documentosPendientes}
+							tr
+								td Evaluaciones retrasadas
+								td #{estado.documentosAlertas}
+				#eventosIniciados
+					h2 Evaluaciones iniciadas
+					#calendarioEventosIniciado.calendario
+						table
+
+				#alertas
+					h2 Evaluaciones retrasadas
+					#calendarioAlertas.calendario
+						table
+				#eventos
+					h2 Evaluaciones a realizar en los próximos 30 días
+					#calendarioEventos.calendario
+						table
+		footer
+	script(src="./script/coordinador/index.js")
+	

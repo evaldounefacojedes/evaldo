@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+html(lang="es")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible", content="ie=edge")
+		title Evaldo - Desarrollo Docente
+		link(rel="stylesheet" href="style/normalize.css")
+		link(rel="stylesheet", href="/script/flatPickr/flatpickr.css")
+		link(rel="stylesheet" href="style/desDocente/estilo.css")
+	body
+		div#contenido
+			header
+				div#titulo
+					a(href="/")
+						h1 Evaldo - Desarrollo Docente
+					#reloj
+							code #{fecha}
+				div#menu
+					ul
+						a(href="/personal")
+							li Validar Personal Docente
+						a(href="/logs")
+							li Registro de Eventos
+						a#logout(href="logout")
+							li Salir
+			main#index
+				#estado
+					h2 Estado
+					table
+						tbody
+							tr
+								td Número de profesores registrados
+								td #{estado.numeroDeProfesores}
+							tr
+								td Número de profesores no validados
+								td #{estado.noValidados}
+							tr
+								td Documentos entregados
+								td #{estado.documentosEntregados}
+							tr
+								td Documentos pendientes por entregar
+								td #{estado.documentosPendientes}
+				#eventos
+					h2 Documentos por entregar
+					#calendarioEventos.calendario
+						table
+		footer
+	script(src="./script/desDocente/index.js")
+	

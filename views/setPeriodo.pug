@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+html(lang="es")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible", content="ie=edge")
+		title Evaldo
+	body
+	script.
+		periodo = prompt('Indique el nombre del nuevo periodo académico');
+		if(typeof(periodo) == 'string' && periodo.length > 4)
+			{
+				let peticion = new XMLHttpRequest();
+				peticion.open('POST', '/setPeriodo');
+				peticion.setRequestHeader('Content-type', 'application/json;charset=UTF-8');
+				peticion.overrideMimeType('json');
+				peticion.onload = ()=>{
+					respuesta = JSON.parse(peticion.responseText);
+					if(respuesta.estado)
+						{
+							alert(respuesta.mensaje);
+							window.location.reload();
+						}
+					else
+						alert(`Error: ${respuesta.mensaje}`);
+				}
+				peticion.send(JSON.stringify({periodo: periodo}));
+			}
+		else
+			if(periodo && periodo.length < 4)
+				alert('El nombre del periodo debe tener al menos cuatro caracteres\nEj: II-2019');
+			window.location.reload();

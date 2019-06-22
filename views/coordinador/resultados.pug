@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+html(lang="es")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible", content="ie=edge")
+		title Evaldo - Coordinadores
+		link(rel="stylesheet" href="style/normalize.css")
+		link(rel="stylesheet" href="style/coordinador/estilo.css")
+	body
+		div#contenido
+			header
+				div#titulo
+					a(href="/")
+						h1 Evaldo - Coordinadores
+					#reloj
+							code #{fecha}
+				div#menu
+					ul
+						a(href="/")
+							li Inicio
+						a#botonBuscar(href="#")
+							li Buscar Profesor
+						a#logout(href="logout")
+							li Salir
+			main#index.resultados
+				table#tablaResultados
+					tbody
+						tr
+							td
+								table
+									tr
+										th Número de Profesores
+										td #{resultados.numeroDeProfesores}
+									tr
+										th Profesores Evaluados
+										td 
+											| #{resultados.profesoresEvaluados.numero}
+											br
+											|  #{resultados.profesoresEvaluados.porcentaje}%
+									tr
+										th Profesores Parcialmente Evaluados
+										td 
+											|#{resultados.profesoresParcialmenteEvaluados.numero}
+											br
+											| #{resultados.profesoresParcialmenteEvaluados.porcentaje}%
+									tr
+										th Profesores no Evaluados
+										td 
+											|#{resultados.profesoresNoEvaluados.numero}
+											br 
+											|#{resultados.profesoresNoEvaluados.porcentaje}%
+							td
+								table
+									tr 
+										th Nombre
+										th Evaluados
+										th Por Evaluar
+										th Resultado Promedio
+									each val in resultados.evaluacion
+										tr
+											td=val.nombre
+											td=val.realizadas
+											td=val.noRealizadas
+											td #{val.promedio}
+			#modalResumenProfesor
+				.modalBackground
+				.contenedorModal#recaudos
+					.tituloModal
+						h1 Evaldo - Coordinadores
+					.relojModal
+							code #{fecha}
+					h1.resumen#nombreProfesor 
+						h2.resumen#cedulaProfesor
+					.tablaRecaudos#tablaProfesor
+						table
+							tbody.resumen#tablaEvaluaciones
+								tr
+									th Evaluación
+									th(style='width: 10rem') Nota
+									th(style='width: 10rem') Nota absoluta
+									th(style='width: 10rem') Porcentaje
+					h2.resumen#notaAbsoluta
+					h2.resumen#notaRelativa
+					input.cancelarBtn(type="button", value="Aceptar")
+					input#descargar.cancelarBtn(type="button", value="Descargar")
+		footer
+script(src="script/coordinador/resultados.js")

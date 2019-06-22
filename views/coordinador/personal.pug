@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+	html(lang="es")
+		head
+			meta(charset="UTF-8")
+			meta(name="viewport", content="width=device-width, initial-scale=1.0")
+			meta(http-equiv="X-UA-Compatible", content="ie=edge")
+			title Evaldo - Coordinadores
+			link(rel="stylesheet", href="/script/flatPickr/flatpickr.css")
+			link(rel="stylesheet" href="style/normalize.css")
+			link(rel="stylesheet" href="style/coordinador/estilo.css")
+			script(src="/script/flatPickr/flatpickr.js")
+			script(src="/script/flatPickr/es.js")
+			script(src="/script/coordinador/personal.js")
+		body
+			div#busy
+			div#contenido
+				header
+					div#titulo
+						a(href="/")
+							h1 Evaldo - Coordinadores
+						#reloj
+								code #{fecha}
+					div#menu
+						ul
+							a(href="/")
+								li Inicio
+							a#registrarBtn(href="#")
+								li Registrar Profesor
+							a#eliminarBtn(href="#")
+								li Eliminar Profesor
+							a#fechasBtn(href="#")
+								li Fechas
+							a#logout(href="logout")
+								li Salir
+				main#personal
+					#tablaPersonal
+						table
+							tr
+								th Nombre
+								th Apellido
+								th Cedula
+								th Estado
+							each val in profesores
+								if val.validado === true
+									tr.profesorClickable
+										td= val.nombre
+											td= val.apellido
+											td= val.cedula
+											if(val.estado)
+												td Completo
+											else
+												if(val.alerta)
+													td Retrasado
+												else
+													td Incompleto
+								else
+									tr
+										td= val.nombre
+										td= val.apellido
+										td= val.cedula
+										td No validado
+			#modalRegistrar
+				.modalBackground
+				.contenedorModal
+					h1 Registrar nuevo profesor
+					form#registroForm()
+						input.nombre(type="text", name="nombre", required, pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]{3,20}", placeholder="Nombre", autocomplete="off")
+						input.apellido(type="text", name="apellido", required, pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]{3,20}", placeholder="Apellido", autocomplete="off")
+						input.cedula(type="text", name="cedula", pattern="[\\d]{1,2}.[\\d]{3}.[\\d]{3}", required, placeholder="Cedula", autocomplete="off")
+						input.enviarBtn(type="submit", value="Enviar")
+						input.cancelarBtn(type="button", value="Cancelar")
+			#modalEliminar
+				.modalBackground
+				.contenedorModal
+					h1 Eliminar profesor
+					form#eliminarForm
+						input.cedula(type="text", name="cedula", pattern="[\\d]{1,2}.[\\d]{3}.[\\d]{3}", required, placeholder="Cedula", autocomplete="off")
+						input.enviarBtn(type="submit", value="Enviar")
+						input.cancelarBtn(type="button", value="Cancelar")
+			#modalProfesor
+				.modalBackground
+				.contenedorModal#recaudos
+					h1#nombreProfesor Profesor Pedro Perez
+					.tablaRecaudos#tablaProfesor
+						table
+							tbody
+								tr
+									th Nombre
+									th Evaluado
+									th Fecha limite
+									th Nota
+					input.enviarBtn(type="submit", value="Guardar")
+					input.cancelarBtn(type="button", value="Cancelar")
+			#modalFechas
+				.modalBackground
+				.contenedorModal
+					h1 Fechas de entrega
+					.tablaRecaudos
+						table
+							tbody
+								tr
+									th Nombre
+									th Fecha de inicio
+									th Fecha limite
+					input.enviarBtn(type="submit", value="Guardar")
+					input.cancelarBtn(type="button", value="Cancelar")
+			#modalMensaje
+				.modalBackground
+				.contenedorModal
+					h1#mensajeText
+			footer
+		script. 
+			flatpickr.localize(flatpickr.l10ns.es);

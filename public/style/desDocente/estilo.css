@@ -1,0 +1,331 @@
+/* INDEX */
+	/* Paneles */
+		body{
+			display: grid;
+			grid-template-areas:"contenido" 
+								"footer";
+			grid-template-rows: 1fr auto;					
+		}
+
+	/* Contenido */
+		#contenido{
+			grid-area: contenido;
+			display: grid;
+			grid-template-areas:"header" 
+								"main";
+			grid-template-rows: auto 1fr;
+		}
+			header{
+				grid-area: header;
+				height: auto;;
+			}
+
+			main#index {
+			grid-area: main;
+			}
+			#eventos, #alertas, #estado{
+				box-sizing: border-box;
+				background-color: white;
+				margin-top: 1rem;
+				border: 5px solid var(--azul-4);
+				border-radius: 20px 20px 0 0;
+				border-bottom: none;
+				}
+			#eventos h2, #alertas h2, #estado h2{
+				text-align: left;
+				padding-left: 2rem;
+				width: calc(100% - 2rem);
+				margin: 0px;
+				color: var(--azul-4);
+				font-weight: bolder;
+				font-size: 2.2rem;
+				font-family: sans-serif;
+				border-bottom: 5px solid var(--azul-4);
+
+			}
+			#estado{
+			display: flex;
+			flex-direction: column;
+			grid-area: estado;
+		}
+		#alertas{
+			display: flex;
+			flex-direction: column;
+		}
+		#eventos{
+			grid-area: eventos;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+		#eventos table, #eventos table tr, #eventos table tr td{
+			width: 100%;
+			display: block;
+		}
+		#eventos table .tituloEvento{
+			background-color: var(--azul-3);
+			color: white;
+		}
+		#eventos table .tituloEvento>td{
+			padding-left: 3rem;
+			width: calc(100% - 3rem);
+		}
+		#eventos table .tituloEvento>tr>td{
+			padding-left: 6rem;
+			width: calc(100% - 6rem);
+		}
+	/*Footer  */
+	footer{
+			grid-area: footer;
+			align-self: end;
+		}
+/* Fin del INDEX */
+
+
+
+
+
+/* Inicio del PERSONAL */
+	/* Tabla */
+		main#personal{
+			margin-top: 2rem;
+			display: grid;
+			grid-template-columns: 2rem auto 2rem;
+			grid-template-rows: auto;
+			grid-template-areas: ". tabla .";
+		}
+		#tablaPersonal{
+			grid-area: tabla;
+			padding: 2rem;
+			border-radius: 50px;
+			background: rgba(255,255,255,1);
+			border-spacing: 2rem;
+		}
+		#tablaPersonal table{
+			border-collapse: collapse;
+			width: 100%;
+		}
+		.tituloEvento>tr>td{
+			background-color: white;
+			text-shadow: 0px 0px 1px gray;
+			color: black;
+		}
+		tr:nth-child(even), tr:nth-child(even)>td>input{
+			background-color: var(--azul-3);
+			color: white;
+			text-shadow: 0px 0px 10px black;
+		}
+		tr:nth-child(odd), tr:nth-child(odd) td input{
+			background-color: white;
+			text-shadow: 0px 0px 1px gray;
+			color: black;
+		}
+		td>input{
+			text-align: center;
+		}
+		td{
+			padding: 0.5rem 0rem;
+			font-family: sans-serif;
+			font-size: 1.2rem;
+		}
+		th{
+			font-size: 1.5rem;
+			font-weight: bolder;
+			padding: 0rem 0rem 1rem 0rem;
+			background-color: white;
+		}
+		th, td{
+			border-bottom: 3px solid black;
+			text-align: left;
+			padding-left: 0.5rem;
+		}
+		tr.profesorClickable:hover{
+			cursor: pointer;
+		}
+
+	/* Estructura de los modales */
+	#modalMensaje, #modalProfesor{
+		display: none;
+	}
+	.modalBackground{
+		position: fixed;
+		z-index: 1;
+		top: 0%;
+		left: 0%;
+		width: 100%;
+		height: 100%;
+		background: rgba(50,50,50, 0.6);
+	}
+	.contenedorModal{
+		z-index: 2;
+		background-color: rgb(240, 240, 240);
+		position: absolute;
+		width: 60%;
+		top: 30%;
+		left: 15%;
+		padding: 20px 5%;
+		text-align: center;
+	}
+	.enviarBtn{
+		width: 121px;
+		grid-area: botonEnviar;
+		justify-self: right;
+	}
+	.cancelarBtn{
+		width: 121px;
+		grid-area: botonCancelar;
+		justify-self: left;
+	}
+
+	/* Recaudos */
+	.contenedorModal#recaudos{
+		height: 80%;
+		width: 80%;
+		top: 5%;
+		left: 5%;
+		display: grid;
+		grid-column-gap: 10px;
+		grid-template-columns: 5% 1fr 1fr 5%;
+		grid-template-areas: ". Nombre Nombre . "
+							 ". Recaudos Recaudos ."
+							 ". botonEnviar botonCancelar .";
+		grid-template-rows: auto 1fr auto;
+		
+	}
+	#tablaRecaudos{
+		height: auto;
+		grid-area: Recaudos;
+		border: 5px dashed var(--azul-4);
+		margin-bottom: 50px;
+	}
+	#tablaRecaudos td{
+		text-align: center;
+	}
+	#tablaRecaudos table{
+		width: 100%;
+	}
+	#nombreProfesor{
+		grid-area: Nombre;
+	}
+	.entregadoBtn:hover{
+		cursor: pointer;
+	}
+	.entregadoBtn{
+		width: 10rem;
+	}
+	.eliminarBtn:hover{
+		cursor: pointer;
+	}
+	.noEntregado{
+			background-color: red;
+			text-shadow: 0px 0px 1px gray;
+			color: black;
+		}
+	#nuevoRecaudo>td{
+		font-weight: bolder;
+		font-size: 2rem;
+		background-color: white;;
+		text-align: center;
+		padding: 0px;
+		color: rgb(0,200,0);
+	}
+	#nuevoRecaudo{
+		cursor: pointer;
+	}
+	.eliminarBtn:hover{
+		background: red;
+	}
+	.fechaBtn>input{
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0,0,0,0);
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		border: none;
+	}
+/* Mensaje Registro */
+/* Fin del PERSONAL */
+
+	.tablaRecaudos{
+		overflow-y: scroll;
+		height: auto;
+		grid-area: Recaudos;
+	}
+	#tablaRecaudos tbody>tr>td:nth-child(1){
+		text-align: left;
+	}
+	#nombreProfesor{
+		grid-area: Nombre;
+	}
+	p.evento{
+		margin:0;
+	}
+	.calendario *{
+		width: 100%;
+		display:block;
+	}
+	#alertas table, #alertas table tr, #alertas table tr td{
+			width: 100%;
+			display: block;
+		}
+	#alertas table .tituloAlerta{
+			background-color: rgb(100,30,30);
+			color: white;
+		}
+	#alertas table .tituloAlerta>td{
+			padding-left: 3rem;
+			width: calc(100% - 3rem);
+		}
+	#alertas table .tituloAlerta>tr>td{
+			background-color: rgb(200,0,0);
+			color:white;
+			text-shadow: 0px 0px 3px black;
+			padding-left: 6rem;
+			width: calc(100% - 6rem);
+		}
+	#modalMensaje, #modalRegistrar, #modalEliminar,#modalEliminarSure, #modalProfesor, #modalDocumentos{
+		display:none;
+	}
+	#modalDocumentos .contenedorModal{
+		height: 80%;
+		width: 80%;
+		top: 5%;
+		left: 5%;
+		display: grid;
+		grid-column-gap: 10px;
+		grid-template-columns:1fr 1fr;
+		grid-template-areas: "Nombre Nombre"
+							 "Recaudos Recaudos"
+							 "botonEnviar botonCancelar";
+		grid-template-rows: auto 1fr auto;
+	}
+
+	.tablaRecaudos::-webkit-scrollbar{
+		width: 0px;
+	}
+	.tablaRecaudos 
+	{height: auto;
+	grid-area: Recaudos;
+	border: 5px dashed var(--azul-4);
+	margin-bottom: 50px;}
+	.tablaRecaudos tbody, .tablaRecaudos table{
+		border-collapse: collapse;
+		width: 100%;
+	}
+	#modalDocumentos h1{
+		grid-area: Nombre;
+	}
+	.eliminarRecaudo{
+		border-left: 3px solid black;
+		color: red;
+		text-align: center;
+		font-weight: bolder;
+		cursor: pointer;
+		width: 10rem;
+	}
+	.nombreRecaudo{
+		cursor: text;
+	}
+/* Mensaje Registro */
+/* Fin del PERSONAL */

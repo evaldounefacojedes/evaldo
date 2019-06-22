@@ -1,0 +1,149 @@
+main{
+    display: grid;
+    grid-template-rows: 4.5rem 2rem 1fr;
+    grid-template-areas: 
+        "titulo titulo titulo titulo ."
+        "subtitulo subtitulo subtitulo subtitulo subtitulo"
+        "login login . . .";
+    background-image: radial-gradient(circle at 0% 9%, rgba(250,250,250, 0.5) -15%,var(--azul) 60%, var(--azul-4))}
+main h1{
+    font-size: 4rem;
+    grid-area: titulo;
+    font-style: italic;}
+main h2{
+    font-size: 2rem;
+    grid-area: subtitulo;
+	margin-bottom: 10rem;
+	}
+main form{
+    margin-top: 4rem;
+    border: none;
+    grid-area: login;
+    align-self: end;
+    min-width: 300px;
+    background-color: rgba(255, 255, 255, 0.20);
+    font-size: 1.5rem;
+    border-radius: 10%;}
+fieldset{
+    font-size: 2rem;
+    border: none;
+    line-height: 1.7rem;
+    display: flex;}
+label{
+    font-size: 1.5rem;}
+legend{
+    display: none;}
+input{
+    width: 100%;
+    margin-bottom: 1rem;
+    border-color: var(--azul-3);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-width: 1px;
+    padding: 5px;
+    font-size: 1.2rem;
+    border-radius: 10px;}
+input:focus{
+    outline: none;
+}
+#enviar{
+    background-color: rgba(255, 255, 255, 0.5);
+    border-width: 0px;
+    border-bottom-width: 4px;
+    border-bottom-color: var(--naranja);
+    border-radius: 10px 10px 0px 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    padding: 10px 20px;}
+pre.error{
+    color:red;
+    text-shadow: 0px 0px 1px red;
+    font-size: 1rem;
+    line-height: 0px;
+    text-align: center;}
+    
+    #fail{
+        align-self: center;
+        grid-area: login;
+    }
+/*Small Screen*/
+@media(max-width: 800px){
+    main{
+    grid-template-areas: 
+        "titulo"
+        "subtitulo"
+        "login";
+       height: 100%;  
+    }
+    main h1{
+        margin: 0;
+        margin-left: 1.5rem;
+        padding: 0;
+        align-self: end;
+    }
+    main h2 {
+        font-size: 1.5rem;
+        margin-left: 1.5rem;
+    }
+    main form{
+        align-self: center;
+        justify-self: center;
+    }}
+
+/* Medium Screen */
+@media(min-width: 800px) and (max-width: 1278px){
+    main{
+        grid-template-areas: 
+            "titulo . . . ."
+            "subtitulo subtitulo subtitulo . ."
+            "login login . . .";
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        height: 100%;
+        margin:0px;
+        }
+        main h1{
+            margin: 0;
+            margin-left: 1.5rem;
+            padding: 0;
+            align-self: end;
+        }
+        main h2 {
+            font-size: 1.5rem;
+            margin-left: 1.5rem;
+        }
+        main form{
+            align-self: center;
+            justify-self: center;
+        }
+    }
+
+/* Large Screen */
+@media(min-width : 1279px){
+    body{
+        display: flex;
+
+    }
+    main{
+		margin-top: auto;
+		margin-bottom: auto;
+        grid-template-columns: 25% 25% 25% 25% 25%;
+        grid-template-rows: auto auto 15rem;
+        grid-template-areas: 
+            "titulo . . . ."
+            "subtitulo subtitulo . . ."
+            "login . . . .";
+        height: auto;
+        align-self: center;
+        width: 100%;
+        position: relative;
+        padding-bottom: 50px; 
+        }
+    main h1{
+        margin-bottom: 0;
+    }
+    main h2{
+        margin-top: 0;
+    }
+    main form{
+        align-self: end;
+    }}
