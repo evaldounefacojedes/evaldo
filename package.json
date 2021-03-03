@@ -16,7 +16,7 @@
     "mongoose": "^5.5.13",
     "nodemailer": "^6.2.1",
     "pdfmake": "^0.1.56",
-    "pug": "^2.0.3"
+    "pug": "^3.0.1"
   },
   "scripts": {
     "test": "node app.js",
